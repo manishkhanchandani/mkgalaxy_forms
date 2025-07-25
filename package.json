@@ -1,0 +1,19 @@
+{
+  "name": "@mkgalaxy/forms",
+  "version": "1.0.0",
+  "description": "All Forms Elements",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manishkhanchandani/mkgalaxy_forms.git"
+  },
+  "author": "Manish Kanayo Khanchandani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manishkhanchandani/mkgalaxy_forms/issues"
+  },
+  "homepage": "https://github.com/manishkhanchandani/mkgalaxy_forms#readme"
+}
