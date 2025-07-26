@@ -1,6 +1,6 @@
 {
   "name": "@mkgalaxy/forms",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "All Forms Elements",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,9 +28,6 @@
   },
   "homepage": "https://github.com/manishkhanchandani/mkgalaxy_forms#readme",
   "devDependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/material": "^7.2.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^30.0.0",
@@ -45,6 +42,9 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.2.0",
     "@fontsource/roboto": "^5.2.6",
     "@mui/icons-material": "^7.2.0",
     "react": "^19.1.0",
