@@ -1,7 +1,7 @@
-import { greet } from "../index";
+import { AlertBox } from "../index";
 
-describe("greet", () => {
-  it("returns the correct greeting", () => {
-    expect(greet("Manish")).toBe("Hello, Manish");
+describe("index exports", () => {
+  it("exports AlertBox component", () => {
+    expect(AlertBox).toBeDefined();
   });
 });
