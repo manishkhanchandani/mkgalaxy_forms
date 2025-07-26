@@ -2,7 +2,7 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import "./components/GetYoutube.scss";
+import "./components/GetYoutube.css";
 export { default as AlertBox } from "./components/AlertBox";
 export { default as ButtonBox } from "./components/ButtonBox";
 export { default as CheckBox } from "./components/CheckBox";
