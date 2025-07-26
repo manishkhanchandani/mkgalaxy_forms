@@ -4,7 +4,7 @@ interface Props {
     label: string;
     value: string;
     handleChange: (n: string, v: string) => void;
-    handleKeyDown?: React.KeyboardEventHandler<HTMLDivElement>;
+    handleKeyDown?: React.KeyboardEventHandler<HTMLDivElement | HTMLTextAreaElement>;
     handleBlur?: (n: string, v: string) => void;
     disabled?: boolean;
     type?: string;
@@ -13,7 +13,7 @@ interface Props {
     start?: string;
     end?: string;
     maxRows?: number;
-    htmlInputs?: any;
+    htmlInputs?: Pick<React.TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "cols" | "placeholder" | "minLength" | "maxLength" | "wrap">;
 }
 declare const _default: React.NamedExoticComponent<Readonly<Props>>;
 export default _default;

@@ -40,7 +40,16 @@ export const handleError = async (
   return errMessage;
 };
 
-export const radiansTo = (latitude: number, longitude: number, point: any) => {
+interface GeoPoint {
+  latitude: number;
+  longitude: number;
+}
+
+export const radiansTo = (
+  latitude: number,
+  longitude: number,
+  point: GeoPoint
+) => {
   const d2r = Math.PI / 180.0;
   const lat1rad = latitude * d2r;
   const long1rad = longitude * d2r;
@@ -56,7 +65,11 @@ export const radiansTo = (latitude: number, longitude: number, point: any) => {
   return 2 * Math.asin(Math.sqrt(a));
 };
 
-export const milesTo = (latitude: number, longitude: number, point: any) => {
+export const milesTo = (
+  latitude: number,
+  longitude: number,
+  point: GeoPoint
+) => {
   console.log("l:", latitude, ", ", latitude, ", ", point);
   return radiansTo(latitude, longitude, point) * 3958.8;
 };
@@ -64,7 +77,7 @@ export const milesTo = (latitude: number, longitude: number, point: any) => {
 export const kilometersTo = (
   latitude: number,
   longitude: number,
-  point: any
+  point: GeoPoint
 ) => {
   return radiansTo(latitude, longitude, point) * 6371.0;
 };

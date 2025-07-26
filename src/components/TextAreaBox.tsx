@@ -7,7 +7,9 @@ interface Props {
   label: string;
   value: string;
   handleChange: (n: string, v: string) => void;
-  handleKeyDown?: React.KeyboardEventHandler<HTMLDivElement>;
+  handleKeyDown?: React.KeyboardEventHandler<
+    HTMLDivElement | HTMLTextAreaElement
+  >;
   handleBlur?: (n: string, v: string) => void;
   disabled?: boolean;
   type?: string;
@@ -16,7 +18,10 @@ interface Props {
   start?: string;
   end?: string;
   maxRows?: number;
-  htmlInputs?: any;
+  htmlInputs?: Pick<
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+    "rows" | "cols" | "placeholder" | "minLength" | "maxLength" | "wrap"
+  >;
 }
 
 const TextAreaBox: React.FC<Readonly<Props>> = ({
@@ -49,7 +54,14 @@ const TextAreaBox: React.FC<Readonly<Props>> = ({
   return (
     <div style={{ marginBottom: "20px", marginTop: "20px" }}>
       <TextField
-        sx={{ boxShadow: "none" }}
+        sx={{
+          boxShadow: "none",
+          "& .MuiInputBase-root": {
+            display: "flex",
+            alignItems: "center",
+            minHeight: "3em",
+          },
+        }}
         fullWidth
         type={type}
         label={label}
@@ -67,17 +79,19 @@ const TextAreaBox: React.FC<Readonly<Props>> = ({
         disabled={disabled}
         helperText={hT}
         error={showError}
-        slotProps={{
-          input: {
-            startAdornment: start ? (
-              <InputAdornment position="start">{start}</InputAdornment>
-            ) : null,
-            endAdornment: end ? (
-              <InputAdornment position="end">{end}</InputAdornment>
-            ) : null,
-          },
-          htmlInput: { ...htmlInputs },
-        }}
+        {...htmlInputs}
+        variant="outlined"
+        {...(start || end
+          ? {
+              // Using input prop directly for adornments
+              startAdornment: start ? (
+                <InputAdornment position="start">{start}</InputAdornment>
+              ) : null,
+              endAdornment: end ? (
+                <InputAdornment position="end">{end}</InputAdornment>
+              ) : null,
+            }
+          : {})}
       />
     </div>
   );

@@ -17,8 +17,8 @@ type Props = {
     | "info"
     | "success"
     | "warning";
-  customStyle?: any;
-  customBtnStyle?: any;
+  customStyle?: React.CSSProperties;
+  customBtnStyle?: React.CSSProperties;
 };
 
 const ButtonBox: React.FC<Readonly<Props>> = ({

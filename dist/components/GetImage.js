@@ -43,7 +43,7 @@ const GetImage = ({ onHandleChange, title, name, value = [], viewOnly = false, d
                                             position: "relative",
                                             width: "100%",
                                             height: "400px",
-                                        }, children: (0, jsx_runtime_1.jsx)("a", { href: item.value, target: "_blank", rel: "noreferrer", children: (0, jsx_runtime_1.jsx)("img", { src: item.value, alt: "Preview image", sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw", style: { objectFit: "contain" } }) }) }), !viewOnly && ((0, jsx_runtime_1.jsx)("div", { className: "text-center", style: {
+                                        }, children: (0, jsx_runtime_1.jsx)("a", { href: item.value, target: "_blank", rel: "noreferrer", children: (0, jsx_runtime_1.jsx)("img", { src: item.value, alt: "Preview", sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw", style: { objectFit: "contain" } }) }) }), !viewOnly && ((0, jsx_runtime_1.jsx)("div", { className: "text-center", style: {
                                             color: "blue",
                                             cursor: "pointer",
                                             marginBottom: "1.2em",

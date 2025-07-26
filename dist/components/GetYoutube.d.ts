@@ -1,5 +1,7 @@
 import React from "react";
-import { InputProps } from "./types";
-import "./GetYoutube.css";
-declare const _default: React.MemoExoticComponent<({ onHandleChange, title, name, value, viewOnly, disabled, }: InputProps) => import("react/jsx-runtime").JSX.Element>;
+import { InputProps, YouTubeItem } from "./types";
+interface GetYoutubeProps extends Omit<InputProps, "value"> {
+    value?: YouTubeItem[];
+}
+declare const _default: React.NamedExoticComponent<GetYoutubeProps>;
 export default _default;

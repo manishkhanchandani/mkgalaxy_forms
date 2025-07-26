@@ -1,9 +1,9 @@
 /** @type {import("jest").Config} **/
-module.exports = {
-  preset: "ts-jest",
+export default {
+  preset: "ts-jest/presets/js-with-ts-esm",
   testEnvironment: "jsdom",
   testMatch: ["**/?(*.)+(test).[jt]s?(x)"],
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "mjs"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   transform: {
     "^.+\\.(ts|tsx)$": [
@@ -16,10 +16,6 @@ module.exports = {
   },
   moduleNameMapper: {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
-    "^(\\.{1,2}/.*)\\.js$": "$1",
   },
   extensionsToTreatAsEsm: [".ts", ".tsx"],
-  transformIgnorePatterns: [
-    "node_modules/(?!(string-width|strip-ansi|ansi-regex|cliui)/)",
-  ],
 };

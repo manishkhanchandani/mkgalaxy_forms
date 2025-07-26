@@ -21,7 +21,7 @@ const clearSessionStorage = (appId, url) => __awaiter(void 0, void 0, void 0, fu
     window.location.href = url !== null && url !== void 0 ? url : "/";
 });
 exports.clearSessionStorage = clearSessionStorage;
-const checkError = (_a) => __awaiter(void 0, [_a], void 0, function* ({ err, url, appId, }) {
+const checkError = ({ err, url, appId, }) => __awaiter(void 0, void 0, void 0, function* () {
     if ("code" in err && err.code === 209) {
         yield (0, exports.clearSessionStorage)(appId, url);
     }

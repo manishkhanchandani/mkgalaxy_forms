@@ -8,8 +8,8 @@ type Props = {
     disabled?: boolean;
     className?: string;
     color?: "error" | "inherit" | "primary" | "secondary" | "info" | "success" | "warning";
-    customStyle?: any;
-    customBtnStyle?: any;
+    customStyle?: React.CSSProperties;
+    customBtnStyle?: React.CSSProperties;
 };
 declare const _default: React.NamedExoticComponent<Readonly<Props>>;
 export default _default;

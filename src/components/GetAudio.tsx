@@ -7,28 +7,41 @@ import { generateRandomString } from "../utils/funcs";
 // https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3
 // https://www.learningcontainer.com/wp-content/uploads/2020/02/Sample-OGG-File.ogg
 
-interface GetAudioProps extends InputProps {
-  // Add any additional props specific to GetAudio
+interface AudioItem {
+  id: string;
+  value: {
+    mp3: string;
+    ogg: string;
+  };
+}
+
+interface GetAudioProps extends Omit<InputProps, "value"> {
+  value: AudioItem[];
 }
 
 const GetAudio: React.FC<GetAudioProps> = ({
   onHandleChange,
   title,
   name,
-  value,
+  value = [],
   viewOnly = false,
   disabled = false,
-}: InputProps) => {
+}) => {
   const [currentValue, setCurrentValue] = React.useState({ mp3: "", ogg: "" });
 
-  const keyDown = (e: any) => {
+  const keyDown = (e: React.KeyboardEvent) => {
     e.persist();
     if (e.key === "Enter") {
       handleSubmit();
     }
   };
 
-  const handleChange = (type: any, _name: string, val: string, e: any) => {
+  const handleChange = (
+    type: "mp3" | "ogg",
+    _name: string,
+    val: string,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     e.persist();
     setCurrentValue((fV) => {
       return { ...fV, [type]: val };
@@ -98,54 +111,59 @@ const GetAudio: React.FC<GetAudioProps> = ({
         >
           <h3>{title}</h3>
           <div>
-            {value.map((item: any, index: number) => {
-              return (
-                <div key={item.id} style={{ marginBottom: "40px" }}>
-                  <div>
-                    <audio controls>
-                      {item.value.mp3 ? (
-                        <source src={item.value.mp3} type="audio/mpeg" />
-                      ) : (
-                        <source src={item.value.ogg} type="audio/ogg" />
-                      )}
-                      <track
-                        src="/captions.vtt"
-                        kind="captions"
-                        srcLang="en"
-                        label="English"
-                        default
-                      />
-                    </audio>
-                  </div>
-                  <div style={{ marginBottom: "10px" }}>
-                    <a
-                      style={{ textDecoration: "none" }}
-                      href={item.value.mp3 ? item.value.mp3 : item.value.ogg}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      View
-                    </a>
-                  </div>
-                  {!viewOnly && (
-                    <div
-                      className="text-center"
-                      style={{
-                        color: "blue",
-                        cursor: "pointer",
-                        marginBottom: "1.2em",
-                      }}
-                      aria-hidden="true"
-                      onClick={() => {
-                        handleDelete(index);
-                      }}
-                    >
-                      Delete
+            {value.map(
+              (
+                item: { id: string; value: { mp3: string; ogg: string } },
+                index: number
+              ) => {
+                return (
+                  <div key={item.id} style={{ marginBottom: "40px" }}>
+                    <div>
+                      <audio controls>
+                        {item.value.mp3 ? (
+                          <source src={item.value.mp3} type="audio/mpeg" />
+                        ) : (
+                          <source src={item.value.ogg} type="audio/ogg" />
+                        )}
+                        <track
+                          src="/captions.vtt"
+                          kind="captions"
+                          srcLang="en"
+                          label="English"
+                          default
+                        />
+                      </audio>
                     </div>
-                  )}
-                </div>
-              );
-            })}
+                    <div style={{ marginBottom: "10px" }}>
+                      <a
+                        style={{ textDecoration: "none" }}
+                        href={item.value.mp3 ? item.value.mp3 : item.value.ogg}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        View
+                      </a>
+                    </div>
+                    {!viewOnly && (
+                      <div
+                        className="text-center"
+                        style={{
+                          color: "blue",
+                          cursor: "pointer",
+                          marginBottom: "1.2em",
+                        }}
+                        aria-hidden="true"
+                        onClick={() => {
+                          handleDelete(index);
+                        }}
+                      >
+                        Delete
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+            )}
           </div>
         </div>
       )}

@@ -6,17 +6,30 @@ interface Props {
   name: string;
   label: string;
   value: string;
-  handleChange: (n: string, v: string, e: any) => void;
-  handleKeyDown?: React.KeyboardEventHandler<HTMLDivElement>;
-  handleBlur?: (n: string, v: string, e: any) => void;
+  handleChange: (
+    n: string,
+    v: string,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  handleKeyDown?: React.KeyboardEventHandler<
+    HTMLDivElement | HTMLInputElement | HTMLTextAreaElement
+  >;
+  handleBlur?: (
+    n: string,
+    v: string,
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
   disabled?: boolean;
   type?: string;
   helperText?: string;
   error?: string | boolean | string[];
   start?: string;
   end?: string;
-  htmlInputs?: any;
-  customStyle?: any;
+  htmlInputs?: Pick<
+    React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
+    "min" | "max" | "step" | "pattern" | "placeholder"
+  >;
+  customStyle?: React.CSSProperties;
 }
 
 const InputBox: React.FC<Readonly<Props>> = ({
@@ -49,7 +62,12 @@ const InputBox: React.FC<Readonly<Props>> = ({
   return (
     <div style={customStyle || { marginBottom: "20px" }}>
       <TextField
-        sx={{ boxShadow: "none" }}
+        sx={{
+          boxShadow: "none",
+          "& .MuiInputBase-root": {
+            height: "3.50em",
+          },
+        }}
         fullWidth
         type={type}
         label={label}
@@ -65,19 +83,16 @@ const InputBox: React.FC<Readonly<Props>> = ({
         disabled={disabled}
         helperText={hT}
         error={showError}
-        slotProps={{
-          input: {
+        {...htmlInputs}
+        {...{
+          InputProps: {
             startAdornment: start ? (
               <InputAdornment position="start">{start}</InputAdornment>
             ) : null,
             endAdornment: end ? (
               <InputAdornment position="end">{end}</InputAdornment>
             ) : null,
-            sx: {
-              height: "3.50em",
-            },
           },
-          htmlInput: { ...htmlInputs },
         }}
       />
     </div>

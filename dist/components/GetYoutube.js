@@ -7,7 +7,6 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = __importDefault(require("react"));
 const react_youtube_1 = __importDefault(require("react-youtube"));
 const __1 = require("../");
-require("./GetYoutube.css");
 const opts = {
     playerVars: {
         // https://developers.google.com/youtube/player_parameters
@@ -16,7 +15,7 @@ const opts = {
         enablejsapi: 1,
     },
 };
-const GetYoutube = ({ onHandleChange, title, name, value, viewOnly = false, disabled = false, }) => {
+const GetYoutube = ({ onHandleChange, title, name, value = [], viewOnly = false, disabled = false, }) => {
     const [currentValue, setCurrentValue] = react_1.default.useState("");
     const keyDown = (e) => {
         e.persist();
@@ -35,12 +34,12 @@ const GetYoutube = ({ onHandleChange, title, name, value, viewOnly = false, disa
         }
         const values = [
             ...value,
-            { url: currentValue, id: (0, __1.utubeIDGrabber)(currentValue) || "" },
+            { id: (0, __1.utubeIDGrabber)(currentValue) || "", value: currentValue },
         ];
         onHandleChange === null || onHandleChange === void 0 ? void 0 : onHandleChange(name, values);
         setCurrentValue("");
     };
-    return ((0, jsx_runtime_1.jsxs)("div", { style: { position: "relative", marginTop: 20 }, children: [!viewOnly && ((0, jsx_runtime_1.jsx)("div", { children: (0, jsx_runtime_1.jsxs)("div", { style: { display: "flex", gap: "16px" }, children: [(0, jsx_runtime_1.jsx)(__1.InputBox, { name: name, value: currentValue, handleChange: (_name, value) => {
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "youtube", style: { position: "relative", marginTop: 20 }, children: [!viewOnly && ((0, jsx_runtime_1.jsx)("div", { children: (0, jsx_runtime_1.jsxs)("div", { style: { display: "flex", gap: "16px" }, children: [(0, jsx_runtime_1.jsx)(__1.InputBox, { name: name, value: currentValue, handleChange: (_name, value) => {
                                 setCurrentValue(value);
                             }, label: title, disabled: disabled, type: "search", customStyle: { flex: 3 }, handleKeyDown: keyDown }), (0, jsx_runtime_1.jsx)(__1.ButtonBox, { type: "button", label: "Add", handleClick: handleSubmit, customBtnStyle: { height: "50px" }, customStyle: { marginTop: 0, marginBottom: 0 } })] }) })), (value === null || value === void 0 ? void 0 : value.length) > 0 && ((0, jsx_runtime_1.jsxs)("div", { style: {
                     border: "1px solid",

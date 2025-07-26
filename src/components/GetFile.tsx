@@ -1,20 +1,24 @@
 import React from "react";
-import { InputProps } from "./types";
+import { InputProps, FileItem } from "./types";
 import InputBox from "./InputBox";
 import ButtonBox from "./ButtonBox";
 import { generateRandomString } from "../utils/funcs";
 
-const GetFile = ({
+interface GetFileProps extends Omit<InputProps, "value"> {
+  value?: FileItem[];
+}
+
+const GetFile: React.FC<GetFileProps> = ({
   onHandleChange,
   title,
   name,
-  value,
+  value = [],
   viewOnly = false,
   disabled = false,
-}: InputProps) => {
+}) => {
   const [currentValue, setCurrentValue] = React.useState("");
 
-  const keyDown = (e: any) => {
+  const keyDown = (e: React.KeyboardEvent) => {
     e.persist();
     if (e.key === "Enter") {
       handleSubmit();
@@ -76,7 +80,7 @@ const GetFile = ({
         >
           <h3>{title}</h3>
           <div>
-            {value.map((item: any, index: number) => {
+            {value.map((item: FileItem, index: number) => {
               return (
                 <div key={item.id} style={{ marginBottom: "40px" }}>
                   <div

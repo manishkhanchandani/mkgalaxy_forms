@@ -2,14 +2,10 @@ import React from "react";
 import InputBox from "./InputBox";
 import ButtonBox from "./ButtonBox";
 import { generateRandomString } from "../utils/funcs";
+import { ImageItem, InputProps } from "./types";
 
-interface GetImageProps {
-  onHandleChange?: (name: string, value: any) => void;
-  title: string;
-  name: string;
-  value?: Array<{ id: string; value: string }>;
-  viewOnly?: boolean;
-  disabled?: boolean;
+interface GetImageProps extends Omit<InputProps, "value"> {
+  value?: ImageItem[];
 }
 
 const GetImage: React.FC<GetImageProps> = ({
@@ -19,10 +15,10 @@ const GetImage: React.FC<GetImageProps> = ({
   value = [],
   viewOnly = false,
   disabled = false,
-}: GetImageProps) => {
+}) => {
   const [currentValue, setCurrentValue] = React.useState("");
 
-  const keyDown = (e: any) => {
+  const keyDown = (e: React.KeyboardEvent) => {
     e.persist();
     if (e.key === "Enter") {
       handleSubmit();
@@ -84,7 +80,7 @@ const GetImage: React.FC<GetImageProps> = ({
         >
           <h3>{title}</h3>
           <div>
-            {value.map((item: any, index: number) => {
+            {value.map((item: ImageItem, index: number) => {
               return (
                 <div key={item.id} style={{ marginBottom: "40px" }}>
                   <div
@@ -97,7 +93,7 @@ const GetImage: React.FC<GetImageProps> = ({
                     <a href={item.value} target="_blank" rel="noreferrer">
                       <img
                         src={item.value}
-                        alt="Preview image"
+                        alt="Preview"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         style={{ objectFit: "contain" }}
                       />

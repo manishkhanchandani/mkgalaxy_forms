@@ -1,4 +1,7 @@
 import React from "react";
-import { InputProps } from "./types";
-declare const _default: React.MemoExoticComponent<({ onHandleChange, title, name, value, viewOnly, disabled, }: InputProps) => import("react/jsx-runtime").JSX.Element>;
+import { InputProps, FileItem } from "./types";
+interface GetFileProps extends Omit<InputProps, "value"> {
+    value?: FileItem[];
+}
+declare const _default: React.NamedExoticComponent<GetFileProps>;
 export default _default;

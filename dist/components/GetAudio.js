@@ -8,7 +8,7 @@ const react_1 = __importDefault(require("react"));
 const InputBox_1 = __importDefault(require("./InputBox"));
 const ButtonBox_1 = __importDefault(require("./ButtonBox"));
 const funcs_1 = require("../utils/funcs");
-const GetAudio = ({ onHandleChange, title, name, value, viewOnly = false, disabled = false, }) => {
+const GetAudio = ({ onHandleChange, title, name, value = [], viewOnly = false, disabled = false, }) => {
     const [currentValue, setCurrentValue] = react_1.default.useState({ mp3: "", ogg: "" });
     const keyDown = (e) => {
         e.persist();

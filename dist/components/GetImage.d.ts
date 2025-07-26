@@ -1,14 +1,7 @@
 import React from "react";
-interface GetImageProps {
-    onHandleChange?: (name: string, value: any) => void;
-    title: string;
-    name: string;
-    value?: Array<{
-        id: string;
-        value: string;
-    }>;
-    viewOnly?: boolean;
-    disabled?: boolean;
+import { ImageItem, InputProps } from "./types";
+interface GetImageProps extends Omit<InputProps, "value"> {
+    value?: ImageItem[];
 }
 declare const MemoizedGetImage: React.NamedExoticComponent<GetImageProps>;
 export default MemoizedGetImage;

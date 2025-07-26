@@ -1,8 +1,7 @@
 import React from "react";
-import { InputProps } from "./types";
+import { InputProps, YouTubeItem } from "./types";
 import YouTube from "react-youtube";
 import { InputBox, ButtonBox, utubeIDGrabber } from "../";
-import "./GetYoutube.css";
 
 const opts = {
   playerVars: {
@@ -13,17 +12,21 @@ const opts = {
   },
 };
 
-const GetYoutube = ({
+interface GetYoutubeProps extends Omit<InputProps, "value"> {
+  value?: YouTubeItem[];
+}
+
+const GetYoutube: React.FC<GetYoutubeProps> = ({
   onHandleChange,
   title,
   name,
-  value,
+  value = [],
   viewOnly = false,
   disabled = false,
-}: InputProps) => {
+}) => {
   const [currentValue, setCurrentValue] = React.useState("");
 
-  const keyDown = (e: any) => {
+  const keyDown = (e: React.KeyboardEvent) => {
     e.persist();
     if (e.key === "Enter") {
       handleSubmit();
@@ -43,13 +46,13 @@ const GetYoutube = ({
 
     const values = [
       ...value,
-      { url: currentValue, id: utubeIDGrabber(currentValue) || "" },
+      { id: utubeIDGrabber(currentValue) || "", value: currentValue },
     ];
     onHandleChange?.(name, values);
     setCurrentValue("");
   };
   return (
-    <div style={{ position: "relative", marginTop: 20 }}>
+    <div className="youtube" style={{ position: "relative", marginTop: 20 }}>
       {!viewOnly && (
         <div>
           <div style={{ display: "flex", gap: "16px" }}>
@@ -85,7 +88,7 @@ const GetYoutube = ({
         >
           <h3>Youtube Videos</h3>
           <div>
-            {value.map((item: any, index: number) => {
+            {value.map((item: YouTubeItem, index: number) => {
               return (
                 <div key={item.id} style={{ marginBottom: "40px" }}>
                   {!viewOnly && (

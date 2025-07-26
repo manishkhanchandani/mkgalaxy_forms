@@ -10,7 +10,7 @@
     "moduleResolution": "node",
     "strict": true,
     "skipLibCheck": true,
-    "types": ["jest"],
+    "types": ["jest", "react", "node"],
     "typeRoots": ["./node_modules/@types", "./src/types"]
   },
   "include": ["src", "**/*.test.ts", "**/*.test.tsx"]
