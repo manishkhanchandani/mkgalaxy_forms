@@ -22,6 +22,7 @@ require("@fontsource/roboto/300.css");
 require("@fontsource/roboto/400.css");
 require("@fontsource/roboto/500.css");
 require("@fontsource/roboto/700.css");
+require("./components/common.css");
 require("./components/GetYoutube.css");
 var AlertBox_1 = require("./components/AlertBox");
 Object.defineProperty(exports, "AlertBox", { enumerable: true, get: function () { return __importDefault(AlertBox_1).default; } });

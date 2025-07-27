@@ -12,7 +12,10 @@ const AlertBox = ({
   severity?: "error" | "info" | "success" | "warning";
 }) => {
   return (
-    <div style={{ marginTop: "10px", marginBottom: "10px" }}>
+    <div
+      className="common alert-box"
+      style={{ marginTop: "10px", marginBottom: "10px" }}
+    >
       <Alert severity={severity}>
         <AlertTitle>{title}</AlertTitle>
         {message}

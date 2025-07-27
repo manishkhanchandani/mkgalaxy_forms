@@ -44,7 +44,10 @@ const GetInput: React.FC<GetInputProps> = ({
     setCurrentValue("");
   };
   return (
-    <div style={{ position: "relative", marginTop: 20 }}>
+    <div
+      className="common common-get input"
+      style={{ position: "relative", marginTop: 20 }}
+    >
       {!viewOnly && (
         <div>
           <div style={{ display: "flex", gap: "16px" }}>
@@ -72,9 +75,12 @@ const GetInput: React.FC<GetInputProps> = ({
       )}
       {value?.length > 0 && (
         <div
+          className="view-box"
           style={{
             border: "1px solid",
             padding: "10px",
+            marginTop: "20px",
+            marginBottom: "20px",
             boxShadow: "5px 10px 8px 10px #888888",
           }}
         >

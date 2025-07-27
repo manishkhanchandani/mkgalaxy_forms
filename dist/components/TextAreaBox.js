@@ -20,7 +20,7 @@ const TextAreaBox = ({ name, label, value, handleChange, handleKeyDown, handleBl
         showError = !!error[0];
         hT = error[0];
     }
-    return ((0, jsx_runtime_1.jsx)("div", { style: { marginBottom: "20px", marginTop: "20px" }, children: (0, jsx_runtime_1.jsx)(TextField_1.default, Object.assign({ sx: {
+    return ((0, jsx_runtime_1.jsx)("div", { className: "common textarea-box", style: { marginBottom: "20px", marginTop: "20px" }, children: (0, jsx_runtime_1.jsx)(TextField_1.default, Object.assign({ sx: {
                 boxShadow: "none",
                 "& .MuiInputBase-root": {
                     display: "flex",

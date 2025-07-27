@@ -1,6 +1,6 @@
 {
   "name": "@mkgalaxy/forms",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "All Forms Elements",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,6 +19,7 @@
     "wrap-ansi": "7.0.0"
   },
   "scripts": {
+    "start": "react-scripts start",
     "build": "tsc && yarn copy-styles",
     "copy-styles": "copyfiles -u 1 \"src/**/*.{css,scss}\" dist",
     "test": "jest --config jest.config.cjs",

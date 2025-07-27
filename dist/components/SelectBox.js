@@ -25,7 +25,7 @@ const SelectBox = ({ name, label, value, handleChange = () => {
         showError = !!error[0];
         hT = error[0];
     }
-    return ((0, jsx_runtime_1.jsx)("div", { style: { marginBottom: "10px" }, children: (0, jsx_runtime_1.jsxs)(FormControl_1.default, { variant: "standard", sx: { minWidth: 120, width: "100%" }, children: [(0, jsx_runtime_1.jsx)(InputLabel_1.default, { id: `${name}_id`, children: label }), (0, jsx_runtime_1.jsxs)(Select_1.default, { labelId: `${name}_label_id`, id: `${name}_id`, value: value, onChange: (e) => {
+    return ((0, jsx_runtime_1.jsx)("div", { className: "common select-box", style: { marginBottom: "10px" }, children: (0, jsx_runtime_1.jsxs)(FormControl_1.default, { variant: "standard", sx: { minWidth: 120, width: "100%" }, children: [(0, jsx_runtime_1.jsx)(InputLabel_1.default, { id: `${name}_id`, children: label }), (0, jsx_runtime_1.jsxs)(Select_1.default, { labelId: `${name}_label_id`, id: `${name}_id`, value: value, onChange: (e) => {
                         handleChange(e.target.name, e.target.value);
                     }, label: label, error: showError, name: name, children: [(0, jsx_runtime_1.jsx)(MenuItem_1.default, { value: "", children: (0, jsx_runtime_1.jsx)("em", { children: "None" }) }), options === null || options === void 0 ? void 0 : options.map((item) => {
                             return ((0, jsx_runtime_1.jsx)(MenuItem_1.default, { value: item.value, children: item.label }, item.value));

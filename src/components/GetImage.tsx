@@ -44,7 +44,10 @@ const GetImage: React.FC<GetImageProps> = ({
     setCurrentValue("");
   };
   return (
-    <div style={{ position: "relative", marginTop: 20 }}>
+    <div
+      className="common common-get image-box"
+      style={{ position: "relative", marginTop: 20 }}
+    >
       {!viewOnly && (
         <div>
           <div style={{ display: "flex", gap: "16px" }}>
@@ -72,6 +75,7 @@ const GetImage: React.FC<GetImageProps> = ({
       )}
       {value?.length > 0 && (
         <div
+          className="view-box"
           style={{
             border: "1px solid",
             padding: "10px",

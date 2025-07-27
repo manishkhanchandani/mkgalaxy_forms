@@ -52,7 +52,10 @@ const TextAreaBox: React.FC<Readonly<Props>> = ({
     hT = error[0];
   }
   return (
-    <div style={{ marginBottom: "20px", marginTop: "20px" }}>
+    <div
+      className="common textarea-box"
+      style={{ marginBottom: "20px", marginTop: "20px" }}
+    >
       <TextField
         sx={{
           boxShadow: "none",

@@ -20,7 +20,7 @@ const InputBox = ({ name, label, value, handleChange, handleKeyDown, handleBlur,
         showError = !!error[0];
         hT = error[0];
     }
-    return ((0, jsx_runtime_1.jsx)("div", { style: customStyle || { marginBottom: "20px" }, children: (0, jsx_runtime_1.jsx)(TextField_1.default, Object.assign({ sx: {
+    return ((0, jsx_runtime_1.jsx)("div", { className: "common input-box", style: customStyle || { marginBottom: "20px" }, children: (0, jsx_runtime_1.jsx)(TextField_1.default, Object.assign({ sx: {
                 boxShadow: "none",
                 "& .MuiInputBase-root": {
                     height: "3.50em",

@@ -37,7 +37,7 @@ const CheckBox = ({
   }, [vals]);
 
   return (
-    <div>
+    <div className="common check-box">
       <Typography variant="button" gutterBottom sx={{ display: "block" }}>
         {title}
       </Typography>

@@ -43,7 +43,7 @@ const RadioBox = ({ options, title, name, handleChange, vals, }) => {
     React.useEffect(() => {
         setValue(vals);
     }, [vals]);
-    return ((0, jsx_runtime_1.jsx)("div", { children: (0, jsx_runtime_1.jsxs)(FormControl_1.default, { children: [(0, jsx_runtime_1.jsx)(FormLabel_1.default, { id: "demo-controlled-radio-buttons-group", children: title }), (0, jsx_runtime_1.jsx)(RadioGroup_1.default, { "aria-labelledby": "demo-controlled-radio-buttons-group", name: "controlled-radio-buttons-group", value: value, onChange: handleToggle, children: options.map((item) => {
+    return ((0, jsx_runtime_1.jsx)("div", { className: "common radio-box", children: (0, jsx_runtime_1.jsxs)(FormControl_1.default, { children: [(0, jsx_runtime_1.jsx)(FormLabel_1.default, { id: "demo-controlled-radio-buttons-group", children: title }), (0, jsx_runtime_1.jsx)(RadioGroup_1.default, { "aria-labelledby": "demo-controlled-radio-buttons-group", name: "controlled-radio-buttons-group", value: value, onChange: handleToggle, children: options.map((item) => {
                         return ((0, jsx_runtime_1.jsxs)(React.Fragment, { children: [(0, jsx_runtime_1.jsx)(FormControlLabel_1.default, { value: item.value, control: (0, jsx_runtime_1.jsx)(Radio_1.default, {}), label: item.primary }), (0, jsx_runtime_1.jsx)(FormHelperText_1.default, { children: item.secondary })] }, item.value));
                     }) })] }) }));
 };

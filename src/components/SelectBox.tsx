@@ -42,7 +42,7 @@ const SelectBox = ({
     hT = error[0];
   }
   return (
-    <div style={{ marginBottom: "10px" }}>
+    <div className="common select-box" style={{ marginBottom: "10px" }}>
       <FormControl variant="standard" sx={{ minWidth: 120, width: "100%" }}>
         <InputLabel id={`${name}_id`}>{label}</InputLabel>
         <Select

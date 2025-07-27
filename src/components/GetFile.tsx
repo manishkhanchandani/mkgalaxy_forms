@@ -44,7 +44,10 @@ const GetFile: React.FC<GetFileProps> = ({
     setCurrentValue("");
   };
   return (
-    <div style={{ position: "relative", marginTop: 20 }}>
+    <div
+      className="common common-get file-box"
+      style={{ position: "relative", marginTop: 20 }}
+    >
       {!viewOnly && (
         <div>
           <div style={{ display: "flex", gap: "16px" }}>
@@ -72,6 +75,7 @@ const GetFile: React.FC<GetFileProps> = ({
       )}
       {value?.length > 0 && (
         <div
+          className="view-box"
           style={{
             border: "1px solid",
             padding: "10px",

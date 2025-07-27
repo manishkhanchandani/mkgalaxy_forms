@@ -17,7 +17,7 @@ const Text = ({
   type: string;
 }) => {
   return (
-    <div className={styles.inputContainer}>
+    <div className={`common text ${styles.inputContainer}`}>
       <div className={styles.inputTitle}>{label}</div>
       <input
         type={type}

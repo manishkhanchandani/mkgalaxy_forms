@@ -67,7 +67,10 @@ const GetAudio: React.FC<GetAudioProps> = ({
     setCurrentValue({ mp3: "", ogg: "" });
   };
   return (
-    <div style={{ position: "relative", marginTop: 20 }}>
+    <div
+      className="common common-get audio-box"
+      style={{ position: "relative", marginTop: 20 }}
+    >
       {!viewOnly && (
         <div>
           <div style={{ display: "flex", gap: "16px" }}>
@@ -103,6 +106,7 @@ const GetAudio: React.FC<GetAudioProps> = ({
       )}
       {value?.length > 0 && (
         <div
+          className="view-box"
           style={{
             border: "1px solid",
             padding: "10px",

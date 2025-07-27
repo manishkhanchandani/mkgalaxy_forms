@@ -60,7 +60,10 @@ const InputBox: React.FC<Readonly<Props>> = ({
     hT = error[0];
   }
   return (
-    <div style={customStyle || { marginBottom: "20px" }}>
+    <div
+      className="common input-box"
+      style={customStyle || { marginBottom: "20px" }}
+    >
       <TextField
         sx={{
           boxShadow: "none",

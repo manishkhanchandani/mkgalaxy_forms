@@ -35,6 +35,7 @@ const ButtonBox: React.FC<Readonly<Props>> = ({
 }) => {
   return (
     <div
+      className="common button-box"
       style={{
         marginBottom: "0.5rem",
         marginTop: "0.5rem",

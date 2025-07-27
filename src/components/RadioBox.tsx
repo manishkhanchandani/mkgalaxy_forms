@@ -26,7 +26,7 @@ const RadioBox = ({
   }, [vals]);
 
   return (
-    <div>
+    <div className="common radio-box">
       <FormControl>
         <FormLabel id="demo-controlled-radio-buttons-group">{title}</FormLabel>
         <RadioGroup

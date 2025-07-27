@@ -53,7 +53,7 @@ const CheckBox = ({ options, title, name, handleChange, disabled, vals, }) => {
     React.useEffect(() => {
         setChecked(vals || []);
     }, [vals]);
-    return ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)(Typography_1.default, { variant: "button", gutterBottom: true, sx: { display: "block" }, children: title }), (0, jsx_runtime_1.jsx)(List_1.default, { sx: { width: "100%", maxWidth: 360, bgcolor: "background.paper" }, children: options.map((item, index) => {
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "common check-box", children: [(0, jsx_runtime_1.jsx)(Typography_1.default, { variant: "button", gutterBottom: true, sx: { display: "block" }, children: title }), (0, jsx_runtime_1.jsx)(List_1.default, { sx: { width: "100%", maxWidth: 360, bgcolor: "background.paper" }, children: options.map((item, index) => {
                     const labelId = `checkbox-list-label-${index}`;
                     return ((0, jsx_runtime_1.jsx)(ListItem_1.default, { disablePadding: true, children: (0, jsx_runtime_1.jsxs)(ListItemButton_1.default, { role: undefined, onClick: () => {
                                 console.log("newChecked: ", item);

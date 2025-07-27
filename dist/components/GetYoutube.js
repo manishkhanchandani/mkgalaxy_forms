@@ -39,9 +39,9 @@ const GetYoutube = ({ onHandleChange, title, name, value = [], viewOnly = false,
         onHandleChange === null || onHandleChange === void 0 ? void 0 : onHandleChange(name, values);
         setCurrentValue("");
     };
-    return ((0, jsx_runtime_1.jsxs)("div", { className: "youtube", style: { position: "relative", marginTop: 20 }, children: [!viewOnly && ((0, jsx_runtime_1.jsx)("div", { children: (0, jsx_runtime_1.jsxs)("div", { style: { display: "flex", gap: "16px" }, children: [(0, jsx_runtime_1.jsx)(__1.InputBox, { name: name, value: currentValue, handleChange: (_name, value) => {
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "common common-get youtube-box youtube", style: { position: "relative", marginTop: 20 }, children: [!viewOnly && ((0, jsx_runtime_1.jsx)("div", { children: (0, jsx_runtime_1.jsxs)("div", { style: { display: "flex", gap: "16px" }, children: [(0, jsx_runtime_1.jsx)(__1.InputBox, { name: name, value: currentValue, handleChange: (_name, value) => {
                                 setCurrentValue(value);
-                            }, label: title, disabled: disabled, type: "search", customStyle: { flex: 3 }, handleKeyDown: keyDown }), (0, jsx_runtime_1.jsx)(__1.ButtonBox, { type: "button", label: "Add", handleClick: handleSubmit, customBtnStyle: { height: "50px" }, customStyle: { marginTop: 0, marginBottom: 0 } })] }) })), (value === null || value === void 0 ? void 0 : value.length) > 0 && ((0, jsx_runtime_1.jsxs)("div", { style: {
+                            }, label: title, disabled: disabled, type: "search", customStyle: { flex: 3 }, handleKeyDown: keyDown }), (0, jsx_runtime_1.jsx)(__1.ButtonBox, { type: "button", label: "Add", handleClick: handleSubmit, customBtnStyle: { height: "50px" }, customStyle: { marginTop: 0, marginBottom: 0 } })] }) })), (value === null || value === void 0 ? void 0 : value.length) > 0 && ((0, jsx_runtime_1.jsxs)("div", { className: "view-box", style: {
                     border: "1px solid",
                     padding: "10px",
                     boxShadow: "5px 10px 8px 10px #888888",
